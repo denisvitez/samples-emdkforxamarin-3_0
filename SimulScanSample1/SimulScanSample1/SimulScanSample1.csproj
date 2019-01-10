@@ -37,14 +37,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <DebugSymbols>true</DebugSymbols>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="Symbol.XamarinEMDK, Version=3.0.0.22, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Symbol.XamarinEMDK.3.0.0.22\lib\MonoAndroid\Symbol.XamarinEMDK.dll</HintPath>
+    <Reference Include="Symbol.XamarinEMDK, Version=3.0.0.41, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Symbol.XamarinEMDK.3.0.0.41\lib\MonoAndroid\Symbol.XamarinEMDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -116,7 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\preferences.xml" />
-  </ItemGroup>  
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

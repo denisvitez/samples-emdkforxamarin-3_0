@@ -475,11 +475,22 @@ public class DeviceControl : Fragment, EMDKManager.IEMDKListener
                         //if(fileList1[counter])
 
                     }*/
+                    //TEST
                     SimulScanMultiTemplate multiTemplate;
+                    //Original
+                    /*
                     multiTemplate = new SimulScanMultiTemplate(
                             simulscanManager,
                           Android.Net.Uri.FromFile(parentActivity.localSettings.fileList[parentActivity.localSettings.selectedFileIndex]));
-
+                    */
+                    string template = null;
+                    //Comment out the template that you don't want to use
+                    //Working template (actual default template for 1 barcode)
+                    //template = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzc21haW4gdmVyc2lvbj0iMi4wIiBuYW1lPSJCYXJjb2RlIDEiPg0KICA8c3N0ZW1wbGF0ZSBudW1iZXI9IjEiIG5hbWU9IkJhcmNvZGUgMSIgd2lkdGg9IjAiIGhlaWdodD0iMCIgdHR5cGU9ImRlZmF1bHQtYmFyY29kZSI+DQogICAgPHJlZ2lvbiBudW1iZXI9IjEiIG5hbWU9IkJhcmNvZGUiIHg9IjAiIHk9IjAiIHdpZHRoPSIwIiBoZWlnaHQ9IjAiIHJ0eXBlPSIweDAyIj4NCiAgICAgIDxwcm9jbW9kZSBwdHlwZT0iYmFyY29kZSIgYmFyY29kZVR5cGU9ImFueSIgLz4NCiAgICA8L3JlZ2lvbj4NCiAgICA8IS0tKioqKioqKiogQ29tbW9uIHBhcmFtZXRlcnMgZm9yIHRoaXMgdGVtcGxhdGUgKioqKioqKioqLS0+DQogICAgPGRwYXJhbSBpZD0idWlfcmVzdWx0X2NvbmZpcm1hdGlvbiIgdHlwZT0iYm9vbGVhbiIgdmFsdWU9ImZhbHNlIiAvPg0KICAgIDxkcGFyYW0gaWQ9ImF1dG9fY2FwdHVyZV9zZW5zaXRpdml0eSIgdHlwZT0iaW50ZWdlciIgdmFsdWU9IjEiIC8+DQogICAgPCEtLUZsZXhpc2NyaXB0IGNvcnJlc3BvbmRpbmcgdG8gdGhpcyB0ZW1wbGF0ZS0tPg0KICAgIDx0ZW1wbGF0ZWZzPjdBMzM3NzUyNjUyMjcwMkI3NzMzNzA3QzYxNkQyQjczMjE2RTg3NkQyMTZGMjI2RTcwNTY3NzIxNzA2MzcwMDA8L3RlbXBsYXRlZnM+DQogIDwvc3N0ZW1wbGF0ZT4NCiAgPCEtLUZsZXhpc2NyaXB0IGNvcnJlc3BvbmRpbmcgdG8gdGhpcyBmb3JtLS0+DQogIDxtYWluZnM+N0EzMzc3NTI2NTIyNzAyQjc3MzM3MDdDNjE2RDJCNzMyMTZFODg2RDY1MjI2RjIyNkU3MDYyODg2RDY1MjI2RjY1MjI2RTcwNjM3MDAwPC9tYWluZnM+DQo8L3NzbWFpbj4=";
+                    //Not working template
+                    template = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHNzbWFpbiB2ZXJzaW9uPSIyLjAiIG5hbWU9IkJhcmNvZGUgMSI+CiAgPHNzdGVtcGxhdGUgbmFtZT0iQmFyY29kZSAxIiB3aWR0aD0iMCIgaGVpZ2h0PSIwIiBudW1iZXI9IjEiIHR0eXBlPSJkZWZhdWx0LWJhcmNvZGUiPgogICAgPCEtLVJlZ2lvbnMgYXJlIGRlZmluZWQgaGVyZS0tPgogICAgPHJlZ2lvbiBudW1iZXI9IjEiIG5hbWU9IkJhcmNvZGUxIiB4PSIwIiB5PSIwIiB3aWR0aD0iMCIgaGVpZ2h0PSIwIiBydHlwZT0iMHgwMiI+CiAgICAgIDxwcm9jbW9kZSBwdHlwZT0iYmFyY29kZSIgYmFyY29kZVR5cGU9ImFueSIvPgogICAgPC9yZWdpb24+CiAgICA8ZHBhcmFtIGlkPSJhdXRvX2NhcHR1cmVfc2Vuc2l0aXZpdHkiIHR5cGU9ImludGVnZXIiIHZhbHVlPSIxIi8+CiAgICA8ZHBhcmFtIGlkPSJ1aV9yZXN1bHRfY29uZmlybWF0aW9uIiB0eXBlPSJib29sZWFuIiB2YWx1ZT0iZmFsc2UiLz4KICAgIDx0ZW1wbGF0ZWZzPjdBMzM3NzUyNjUyMjcwN0M2MTZENTI3MzI2NkU4ODZENjUyMjZGMjI2RTcwNjI4ODZENjUyMjZGNjUyMjZFNzA2MzcwMDA8L3RlbXBsYXRlZnM+CiAgPC9zc3RlbXBsYXRlPgogIDxtYWluZnM+N0EzMzc3NTI2NTIyNzA3QzYxNkQ1MjczMjY2RTg4NkQ2NTIyNkYyMjZFNzA2Mjg4NkQ2NTIyNkY2NTIyNkU3MDYzNzAwMDwvbWFpbmZzPgo8L3NzbWFpbj4=";
+                    //Create multitemplate object
+                    multiTemplate = new SimulScanMultiTemplate(simulscanManager, template);
                     if (multiTemplate != null)
                         config.MultiTemplate = multiTemplate;
 
